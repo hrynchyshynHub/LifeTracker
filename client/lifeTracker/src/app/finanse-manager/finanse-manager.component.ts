@@ -10,7 +10,6 @@ import {FinanceService} from "../service/finance.service";
 export class FinanseManagerComponent implements OnInit {
 
   finances : Finance[];
-  selectedFinance: Finance;
 
   constructor(private financeService: FinanceService) { }
 
@@ -18,9 +17,6 @@ export class FinanseManagerComponent implements OnInit {
     this.getAllFinances();
   }
 
-  onSelect(finance : Finance){
-    this.selectedFinance = finance;
-  }
 
   getAllFinances(): void {
     this.financeService.getAllFinances()

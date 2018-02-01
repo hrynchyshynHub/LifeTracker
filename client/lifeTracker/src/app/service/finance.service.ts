@@ -16,4 +16,9 @@ export class FinanceService {
     return of(FINANCE);
   }
 
+  getFinance(id: number): Observable<Finance>{
+    this.messageService.add(`FinanceService: fetched finance id = ${id}`);
+    return of(FINANCE.find(finance => finance.id === id));
+  }
+
 }
