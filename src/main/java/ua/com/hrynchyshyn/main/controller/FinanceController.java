@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import ua.com.hrynchyshyn.main.domain.Finance;
 import ua.com.hrynchyshyn.main.service.FinanceService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/finance")
 public class FinanceController {
@@ -16,8 +18,10 @@ public class FinanceController {
     private FinanceService financeService;
 
     @GetMapping("/getAll")
-    public Iterable<Finance> getFinance(){
-        return financeService.findAllFinance();
+    public @ResponseBody List<Finance> getFinance(){
+        LOGGER.info("get all finance method is executing....");
+        financeService.findAllFinance().forEach(System.out::print);
+        return (List<Finance>)financeService.findAllFinance();
     }
 
     @PostMapping("/save")

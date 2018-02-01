@@ -12,16 +12,16 @@ import { catchError, map, tap } from 'rxjs/operators';
 @Injectable()
 export class FinanceService {
 
-  private financeUrl = 'api/v1/finance';
+  private financeUrl = 'api/v1/finance/getAll';
 
   constructor(private messageService: MessageService,
               private http: HttpClient) { }
 
    getAllFinances() : Observable<Finance[]> {
     this.log('fetched finances');
-    return this.http.get<Finance[]>(this.financeUrl + '/getAll')
+    return this.http.get<Finance[]>(this.financeUrl)
                .pipe(
-                 tap(finances => this.log(`fetched finances`)),
+                 tap(finances => this.log(`fetched finances` + finances)),
                  catchError(this.handleError('getFinance', []))
                );
   }
