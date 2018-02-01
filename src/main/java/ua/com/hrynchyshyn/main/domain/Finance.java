@@ -19,9 +19,10 @@ public class Finance {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
-    private int value;
+    private String description;
+    private int amount;
 
     public Finance(int value) {
-        this.value = value;
+        this.amount = value;
     }
 }

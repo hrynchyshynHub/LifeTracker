@@ -1,16 +1,16 @@
 buildscript {
-	ext {
-		springBootVersion = '2.0.0.M3'
-	}
-	repositories {
-		mavenCentral()
-		maven { url "https://repo.spring.io/milestone" }
-		maven { url "https://plugins.gradle.org/m2/" }
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath("com.moowork.gradle:gradle-node-plugin:1.2.0")
-	}
+    ext {
+        springBootVersion = '2.0.0.M3'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("com.moowork.gradle:gradle-node-plugin:1.2.0")
+    }
 }
 
 apply plugin: 'java'
@@ -23,57 +23,60 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
-	maven { url "https://repo.spring.io/snapshot" }
-	maven { url "https://repo.spring.io/milestone" }
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
 }
 
 dependencies {
-	compile "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
-	compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
-	compile "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion"
-	compile "org.springframework.boot:spring-boot-devtools:$springBootVersion"
-	runtime('com.h2database:h2')
-	compileOnly('org.projectlombok:lombok')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "org.springframework.boot:spring-boot-starter-hateoas"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-devtools:$springBootVersion"
+    compile group: 'com.jcraft', name: 'jsch', version: '0.1.54'
+    runtime('com.h2database:h2')
+    compileOnly('org.projectlombok:lombok')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 node {
-	version = '6.11.2'
-	npmVersion = '3.10.10'
-	download = true
+    version = '6.11.2'
+    npmVersion = '3.10.10'
+    download = true
 }
 
 
 task appNpmBuild(type: NpmTask) {
-	description = "Build UI"
-	workingDir = file("${project.projectDir}/client/lifeTracker")
-	args = ['run', 'build']
+    description = "Build UI"
+    workingDir = file("${project.projectDir}/client")
+    args = ['run', 'build']
 }
 
 task appLint(type: NpmTask) {
-	description = "Build UI"
-	workingDir = file("${project.projectDir}/client/lifeTracker")
-	args = ['run', 'lint']
+    description = "Build UI"
+    workingDir = file("${project.projectDir}/client")
+    args = ['run', 'lint']
 }
 
 task appNpmInstall(type: NpmTask) {
-	description = "Installs dependencies from package.json"
-	workingDir = file("${project.projectDir}/client/lifeTracker")
-	args = ['install']
+    description = "Installs dependencies from package.json"
+    workingDir = file("${project.projectDir}/client")
+    args = ['install']
 }
 
-//create a single Jar with all dependencies
-//task fatJar(type: Jar) {
-//	manifest {
-//		attributes 'Implementation-Title': 'Gradle Jar File Example',
-//				'Implementation-Version': version,
-//				'Main-Class': 'ua.com.hrynchyshyn.Maim'
-//	}
-//	baseName = project.name + '-all'
-//	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-//	with jar
-//}
+task fatJar(type: Jar) {
+	manifest {
+		attributes 'Implementation-Title': 'Gradle Jar File Example',
+				'Implementation-Version': version,
+				'Main-Class': 'ua.com.hrynchyshyn.Maim'
+	}
+	baseName = project.name + '-all'
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	with jar
+}
 
 
 appLint.dependsOn(appNpmInstall)

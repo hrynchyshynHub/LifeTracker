@@ -8,14 +8,14 @@ import ua.com.hrynchyshyn.main.domain.Finance;
 import ua.com.hrynchyshyn.main.service.FinanceService;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/finance")
 public class FinanceController {
     private static  final Logger LOGGER = LoggerFactory.getLogger(FinanceController.class);
 
     @Autowired
     private FinanceService financeService;
 
-    @GetMapping("/getFinance")
+    @GetMapping("/getAll")
     public Iterable<Finance> getFinance(){
         return financeService.findAllFinance();
     }

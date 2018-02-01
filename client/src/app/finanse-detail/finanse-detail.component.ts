@@ -28,4 +28,8 @@ export class FinanseDetailComponent implements OnInit {
         .subscribe( finance => this.finance = finance);
   }
 
+  goBack(): void{
+    this.location.back();
+  }
+
 }

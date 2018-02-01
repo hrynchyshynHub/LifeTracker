@@ -9,6 +9,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './service/message.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { PowerCounterComponent } from './power-counter/power-counter.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PowerCounterComponent } from './power-counter/power-counter.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [FinanceService, MessageService],
   bootstrap: [AppComponent]
