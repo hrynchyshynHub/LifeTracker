@@ -1,0 +1,12 @@
+<div *ngIf = "finance">
+  <h1>Description : {{ finance.description | uppercase }}</h1>
+  <div class="selected-wrapper">
+    <h2>id : {{ finance.id }}</h2>
+    <h2>amount : {{ finance.amount }}</h2>
+    <div>
+      <label> amount:
+        <input [(ngModel)] = "finance.amount" placeholder="amount">
+      </label>
+    </div>
+  </div>
+</div>

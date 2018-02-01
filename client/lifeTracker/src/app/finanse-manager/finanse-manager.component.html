@@ -1,0 +1,12 @@
+<div class="general-wrapper">
+  <h1>My finance</h1>
+  <div *ngFor = "let finance of finances" [class.selected] = "finance === finance" (click)="onSelect(finance)" >
+    <div class="general-id">{{ finance.id }}</div>
+    <div class="general-desc"> <a routerLink="/finance/{{finance.id}}"> {{ finance.description }}  {{ finance.amount }}</a> </div>
+    <div style="clear: both"></div>
+  </div>
+</div>
+<app-finanse-detail [finance] = "selectedFinance"></app-finanse-detail>
+
+
+
