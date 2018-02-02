@@ -20,7 +20,20 @@ body, input[text], button {
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
-
+fa, h4{
+  color: #212121;
+  text-align:center;
+  transition: 0.3s;
+}
+fa{
+  margin-left: 50px;
+}
+fa:hover{
+  color: #FFFFFF;
+}
+fa:hover ~ h4{
+  color: #FFFFFF;
+}
 .dark-primary-color    { background: #1976D2; }
 .default-primary-color { background: #2196F3; }
 .light-primary-color   { background: #BBDEFB; }

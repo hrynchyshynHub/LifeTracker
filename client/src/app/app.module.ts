@@ -12,6 +12,7 @@ import { PowerCounterComponent } from './power-counter/power-counter.component';
 import {HttpClientModule} from "@angular/common/http";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     FinanseManagerComponent,
     FinanseDetailComponent,
     MessagesComponent,
-    PowerCounterComponent
+    PowerCounterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

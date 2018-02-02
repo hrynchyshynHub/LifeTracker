@@ -1,0 +1,31 @@
+.financial-summary{
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-bottom: 2px solid silver;
+}
+.statistic-summary{
+  background: #FFFFFF;
+  width: 100%;
+  margin: 0px;
+}
+.financial-summary-header{
+  height: 80px;
+  color: #FFFFFF;
+  border: 2px solid silver;
+  padding: 10px 50px;
+  font-size: 2em;
+  text-align: center;
+  margin: 0px;
+}
+.financial-summary-body{
+  height: 300px;
+}
+.wrapper{
+  margin-top: 70px;
+  margin-bottom: 70px;
+  margin-left: 20px;
+  height: 250px;
+  float: left;
+  width: 30%;
+}
