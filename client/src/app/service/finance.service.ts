@@ -24,6 +24,7 @@ export class FinanceService {
                  tap(finances => this.log(`fetched finances` + finances)),
                  catchError(this.handleError('getFinance', []))
                );
+     // return of(FINANCE);
   }
 
   getFinance(id: number): Observable<Finance>{

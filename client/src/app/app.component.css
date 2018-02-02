@@ -1,0 +1,37 @@
+.logo{
+  height: 110px;
+  background: #1976D2;
+  background: #607D8B;
+  color: #FFFFFF;
+}
+nav{
+  margin: 0px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.nav-item{
+  float: left;
+  background: #1976D2;
+  height: 110px;
+  margin-left: 0px;
+  border-right: 1px solid #888888;
+  transition: all .5s ease-in-out;
+}
+.nav-item:hover {
+  background: #2196F3;
+}
+
+fa, h4{
+  color: #212121;
+  text-align:center;
+  transition: 0.3s;
+}
+fa{
+  margin-left: 50px;
+}
+fa:hover{
+  color: #FFFFFF;
+}
+fa:hover ~ h4{
+  color: #FFFFFF;
+}

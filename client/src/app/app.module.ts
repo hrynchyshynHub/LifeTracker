@@ -10,6 +10,8 @@ import { MessageService } from './service/message.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { PowerCounterComponent } from './power-counter/power-counter.component';
 import {HttpClientModule} from "@angular/common/http";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    AngularFontAwesomeModule
   ],
   providers: [FinanceService, MessageService],
   bootstrap: [AppComponent]

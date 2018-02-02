@@ -1,7 +1,50 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/finance">Фінанси</a>
-  <a routerLink="/counter">Лічильник</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<div class="container-fluid">
+  <div class="row">
+    <div class="logo col-lg-2 col-md-0">
+      <img src="../assets/logo1.png" height="100" width="40" align="right"/>
+      <h4 class="font-italic">Track your Life</h4>
+    </div>
+    <nav class="col-lg-10 col-md-12">
+
+      <div class="nav-item  col-md-2" routerLink="/finance">
+        <fa name="fal fa-plus fa-5x"></fa>
+        <h4>Add finance</h4>
+      </div>
+
+      <div class="nav-item  col-md-2" routerLink="/counter">
+        <fa name = "fas fa-list-ul fa-5x"></fa>
+        <h4>Categories</h4>
+      </div>
+
+
+      <div class="nav-item col-md-2" routerLink="/counter">
+        <fa name ="far fa-credit-card fa-5x"></fa>
+        <h4>Currency</h4>
+      </div>
+
+
+      <div class="nav-item col-md-2" routerLink="/counter">
+        <fa name = "fas fa-calculator fa-5x"></fa>
+        <h4>Calculator</h4>
+      </div>
+
+
+      <div class="nav-item col-md-2" routerLink="/counter">
+        <fa name = "fas fa-check-circle fa-5x"></fa>
+        <h4>To Do</h4>
+      </div>
+
+      <div class="nav-item col-md-2" routerLink="/counter">
+        <fa name = "far fa-exclamation-triangle fa-5x"></fa>
+        <h4>Gaz</h4>
+      </div>
+
+    </nav>
+  </div>
+
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
+
+<!--<app-messages></app-messages>-->
+</div>
