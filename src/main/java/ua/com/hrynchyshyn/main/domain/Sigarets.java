@@ -1,9 +1,6 @@
 package ua.com.hrynchyshyn.main.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -16,6 +13,7 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @EqualsAndHashCode(of = {"id", "count", "localDate"})
 public class Sigarets {
 
@@ -26,12 +24,4 @@ public class Sigarets {
 
     private LocalDate localDate;
 
-    @Override
-    public String toString() {
-        return "Sigarets{" +
-            "id=" + id +
-            ", count=" + count +
-            ", localDateTime=" + localDate +
-            '}';
-    }
 }

@@ -15,7 +15,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { SmokeCalculatorComponent } from './smoke-calculator/smoke-calculator.component';
-import * as $ from 'jquery';
+import {CalculatorService} from "./service/calculator.service";
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import * as $ from 'jquery';
     NgbModule,
     AngularFontAwesomeModule
   ],
-  providers: [FinanceService, MessageService],
+  providers: [FinanceService, MessageService, CalculatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

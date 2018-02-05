@@ -8,6 +8,7 @@ import ua.com.hrynchyshyn.main.repository.SigaretsRepository;
 import ua.com.hrynchyshyn.main.service.SigaretsService;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,8 +23,16 @@ public class SigaretsServiceImpl implements SigaretsService {
     }
 
     @Override
-    public void updateDailyInfo(Sigarets sigarets) {
-
+    public Sigarets updateDailyInfo(Sigarets sigarets) {
+        Sigarets sigaretsFromDatabase = sigaretsRepository.findSigaretsByLocalDate();
+        if(sigaretsFromDatabase == null){
+            sigaretsRepository.saveAndFlush(sigarets);
+            return sigarets;
+        }else{
+            sigaretsFromDatabase.setCount(sigarets.getCount());
+            sigaretsRepository.save(sigaretsFromDatabase);
+            return sigaretsFromDatabase;
+        }
     }
 
     @Override
@@ -34,5 +43,10 @@ public class SigaretsServiceImpl implements SigaretsService {
     @Override
     public Optional<Sigarets> findById(Integer id) {
         return this.sigaretsRepository.findById(id);
+    }
+
+    @Override
+    public List<Sigarets> findAll() {
+        return sigaretsRepository.findAll();
     }
 }

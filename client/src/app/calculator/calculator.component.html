@@ -1,4 +1,5 @@
 
 <app-smoke-calculator [smokedSigaretsSize] = "10"
-                      (smokedSigaretsChanges) = "updateSmokesCounter($event)">
+                      (smokedSigaretsChanges) = "updateSmokesCounter($event)"
+                      [sigaretsHistoryTable] = {{ sigaretsHistory }}>
 </app-smoke-calculator>

@@ -6,6 +6,7 @@ import ua.com.hrynchyshyn.main.domain.Sigarets;
 import ua.com.hrynchyshyn.main.service.SigaretsService;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/calculator")
@@ -15,24 +16,32 @@ public class CalculatorController {
     private final SigaretsService sigaretsService;
 
     @GetMapping("/getSigaretsForToday")
-    public Sigarets findSigaretsByLocalDateBetween() {
+    public Sigarets findSigaretsByLocalDate() {
         return this.sigaretsService.findSigaretsByLocalDate();
     }
 
-    @PostMapping("/saveSigarets")
+    @PostMapping("/saveOeUpdateSigarets")
     public Sigarets saveSigarets(@RequestBody Sigarets sigarets) {
+        System.out.println(sigarets);
         sigarets.setLocalDate(LocalDate.now());
-        return this.sigaretsService.save(sigarets);
+        System.out.println(sigarets);
+        return sigaretsService.updateDailyInfo(sigarets);
     }
 
-    @PutMapping("/updateSigarets/{id}")
-    public Sigarets updateSigaretsCounter(@PathVariable("id") Integer id, @RequestBody Sigarets sigarets) throws Exception {
-        sigarets.setLocalDate(LocalDate.now());
-        return this.sigaretsService.findById(id)
-            .map(s -> {
-                s.setCount(sigarets.getCount());
-                return this.sigaretsService.save(s);
-            })
-            .orElseThrow(Exception::new);
+    @GetMapping("/getAllSigaretsHistory")
+    public List<Sigarets> getAllsigaretsHistory(){
+        return sigaretsService.findAll();
     }
+
+
+//    @PutMapping("/updateSigarets/{id}")
+//    public Sigarets updateSigaretsCounter(@PathVariable("id") Integer id, @RequestBody Sigarets sigarets) throws Exception {
+//        sigarets.setLocalDate(LocalDate.now());
+//        return this.sigaretsService.findById(id)
+//            .map(s -> {
+//                s.setCount(sigarets.getCount());
+//                return this.sigaretsService.save(s);
+//            })
+//            .orElseThrow(Exception::new);
+//    }
 }
