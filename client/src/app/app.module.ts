@@ -13,7 +13,9 @@ import {HttpClientModule} from "@angular/common/http";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { CalculatorComponent } from './calculator/calculator.component';
+import { SmokeCalculatorComponent } from './smoke-calculator/smoke-calculator.component';
+import * as $ from 'jquery';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FinanseDetailComponent,
     MessagesComponent,
     PowerCounterComponent,
-    DashboardComponent
+    DashboardComponent,
+    CalculatorComponent,
+    SmokeCalculatorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+.sigarets-calculator-wrapper{
+  width: 35%;
+  border: 1px solid #212121;
+  background: #FFFFFF;
+  height: 400px;
+}
+
+h1{
+  color:#212121;
+}
+
+.sigarets-table{
+  width: 70%;
+  float: right;
+}

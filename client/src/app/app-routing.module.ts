@@ -4,12 +4,13 @@ import {FinanseManagerComponent} from "./finanse-manager/finanse-manager.compone
 import {PowerCounterComponent} from "./power-counter/power-counter.component";
 import {FinanseDetailComponent} from "./finanse-detail/finanse-detail.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {CalculatorComponent} from "./calculator/calculator.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
   { path: 'finance', component: FinanseManagerComponent},
   { path: 'finance/:id', component: FinanseDetailComponent},
-  { path: 'counter', component: PowerCounterComponent}
+  { path: 'calculator', component: CalculatorComponent}
 ];
 
 @NgModule({
