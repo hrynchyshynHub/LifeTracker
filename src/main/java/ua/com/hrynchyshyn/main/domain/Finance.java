@@ -2,50 +2,18 @@ package ua.com.hrynchyshyn.main.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity(name = "finance")
+@Entity
+@Table(name = "finance")
 @AllArgsConstructor
+@NoArgsConstructor
 public class Finance {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String description;
     private int amount;
-
-    public Finance(){}
-
-    public Finance(int value) {
-        this.amount = value;
-        this.description = "LAlA";
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
 
     @Override
     public String toString() {
