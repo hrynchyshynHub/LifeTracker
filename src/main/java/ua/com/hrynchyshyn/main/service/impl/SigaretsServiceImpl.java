@@ -1,13 +1,11 @@
 package ua.com.hrynchyshyn.main.service.impl;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.stereotype.Service;
 import ua.com.hrynchyshyn.main.domain.Sigarets;
 import ua.com.hrynchyshyn.main.repository.SigaretsRepository;
 import ua.com.hrynchyshyn.main.service.SigaretsService;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,14 +17,14 @@ public class SigaretsServiceImpl implements SigaretsService {
 
     @Override
     public Sigarets findSigaretsByLocalDate() {
-        return this.sigaretsRepository.findSigaretsByLocalDate();
+        return this.sigaretsRepository.findSigaretsforToday();
     }
 
     @Override
     public Sigarets updateDailyInfo(Sigarets sigarets) {
-        Sigarets sigaretsFromDatabase = sigaretsRepository.findSigaretsByLocalDate();
+        Sigarets sigaretsFromDatabase = sigaretsRepository.findSigaretsforToday();
         if(sigaretsFromDatabase == null){
-            sigaretsRepository.saveAndFlush(sigarets);
+            sigaretsRepository.save(sigarets);
             return sigarets;
         }else{
             sigaretsFromDatabase.setCount(sigarets.getCount());

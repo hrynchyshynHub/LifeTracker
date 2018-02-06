@@ -1,6 +1,6 @@
 package ua.com.hrynchyshyn.main.domain;
 
-import lombok.*;
+import  lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -18,6 +18,7 @@ import java.util.Objects;
 public class Sigarets {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private int count;

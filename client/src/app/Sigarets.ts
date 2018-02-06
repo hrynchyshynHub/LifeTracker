@@ -1,9 +1,10 @@
 export class Sigarets{
   id: number;
-  counter: number;
-  localdate: string;
+  count: number;
+  localDate: string;
+
 
   constructor(counter:number){
-    this.counter = counter;
+    this.count = counter;
   }
 }

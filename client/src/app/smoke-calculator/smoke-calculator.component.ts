@@ -1,5 +1,6 @@
 import { Component, OnInit,Output, Input, EventEmitter} from '@angular/core';
 import {Sigarets} from "../Sigarets";
+import {CalculatorService} from "../service/calculator.service";
 
 
 @Component({
@@ -10,25 +11,27 @@ import {Sigarets} from "../Sigarets";
 export class SmokeCalculatorComponent implements OnInit {
 
   @Input() smokedSigaretsSize;
-  @Input() sigaretsHistoryTable: Sigarets[];
-  @Output() smokedSigaretsChanges = new EventEmitter<number>();
+  sigaretsHistory: Sigarets[];
+  // @Output() smokedSigaretsChanges = new EventEmitter<number>();
 
 
 
-  constructor() { }
+  constructor(private calculatorService: CalculatorService) { }
 
   ngOnInit() {
-
+    this.calculatorService.getSigaretsHistory().subscribe(data => this.sigaretsHistory = data);
+    console.log(this.sigaretsHistory);
   }
 
   inc(){
     this.smokedSigaretsSize++;
-    this.smokedSigaretsChanges.emit(this.smokedSigaretsSize);
+    // this.smokedSigaretsChanges.emit(this.smokedSigaretsSize);
+    this.calculatorService.updateSigaretsCounter(new Sigarets(this.smokedSigaretsSize))
   }
 
   dec(){
-    this.smokedSigaretsSize--;
-    this.smokedSigaretsChanges.emit(this.smokedSigaretsSize);
+    this.smokedSigaretsSize--;    // this.smokedSigaretsChanges.emit(this.smokedSigaretsSize);
+    this.calculatorService.updateSigaretsCounter(new Sigarets(this.smokedSigaretsSize))
   }
 
 

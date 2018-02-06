@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CalculatorService} from "../service/calculator.service";
-import {Sigarets} from "../Sigarets";
+
 
 @Component({
   selector: 'app-calculator',
@@ -9,22 +8,18 @@ import {Sigarets} from "../Sigarets";
 })
 export class CalculatorComponent implements OnInit {
 
-  private sigaretsCounter:number;
-  sigaretsHistory: Sigarets[];
+  sigaretsCounter:number;
 
-  constructor(private calculatorService: CalculatorService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.getSigaretsHistoryTable();
   }
 
   updateSmokesCounter(event){
+    console.log(event + 'before');
     this.sigaretsCounter = event;
-    this.calculatorService.updateSigaretsCounter(new Sigarets(event));
+    console.log(event + 'after');
   }
 
-  getSigaretsHistoryTable(): void{
-    this.calculatorService.getSigaretsHistory().subscribe(data => this.sigaretsHistory = data);
-  }
 
 }

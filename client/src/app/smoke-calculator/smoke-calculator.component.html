@@ -1,22 +1,19 @@
 <div class="sigarets-calculator-wrapper">
 
-
   <h1> Today your have smoked: {{ smokedSigaretsSize }}</h1>
-
 
   <button (click) = "inc()" title="increment" class="btn btn-success">+</button>
   <button (click) = "dec()" title="decrement" class="btn btn-primary">-</button>
 
 
-
-
   <table class="table table-striped table-dark sigarets-table">
     <thead>
+    <th>ID</th>
     <th>Sigarets</th>
     <th>Day</th>
     </thead>
     <tr *ngFor = "let sigarets of sigaretsHistory">
-      <td>{{sigarets.counter}}</td><td>{{sigarets.localDate}}</td>
+      <td>{{sigarets.id}}</td><td>{{sigarets.count}}</td><td>{{sigarets.localDate}}</td>
     </tr>
   </table>
 </div>
